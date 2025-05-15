@@ -1,10 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "µ¥ÀÌÅÍ_Ä³¸¯ÅÍ_", menuName = "Data/Ä³¸¯ÅÍ", order = 1)]
+[CreateAssetMenu(fileName = "ë°ì´í„°_ìºë¦­í„°_", menuName = "Data/ìºë¦­í„°", order = 1)]
 public class SData_Character : SData
 {
+    public Enum_CharacterName CharacterName;
     public Data_BaseStat BaseStat;
     public Data_LevelStat LevelStat;
+    public float Cost;
+    public float LevelCost;
     public int MaxLevel;
     public Enum_CharacterRank MaxRank;
 }

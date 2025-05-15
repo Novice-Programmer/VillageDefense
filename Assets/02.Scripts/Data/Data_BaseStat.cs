@@ -1,7 +1,7 @@
 using System;
 
 /// <summary>
-/// �⺻ �ɷ�ġ
+/// 기본 능력치
 /// </summary>
 [Serializable]
 public class Data_BaseStat
