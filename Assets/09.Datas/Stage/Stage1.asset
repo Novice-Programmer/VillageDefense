@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7259ee240529d24ebebd37484c1d6f5, type: 3}
+  m_Name: Stage1
+  m_EditorClassIdentifier: 
+  StageWaitTime: 10
+  WaveDatas:
+  - WaveWaitTime: 0
+    SpawnDatas:
+    - SpawnWaitTime: 0.5
+      SpawnCount: 20
+      EnemyScriptable: {fileID: 11400000, guid: 6b8252be18864e0438b057012e70c654, type: 2}
