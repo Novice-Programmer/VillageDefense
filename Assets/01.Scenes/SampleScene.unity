@@ -2577,6 +2577,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 801467620547720143, guid: f85491eeddf882c4bbc588ce304e4dd4, type: 3}
   m_PrefabInstance: {fileID: 209577559}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &248313935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248313936}
+  - component: {fileID: 248313937}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248313936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248313935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248313937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248313935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebfe98099f495446a3c7e12bdf37e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDestroy: 0
+  VillageScriptables:
+  - {fileID: 11400000, guid: d780014882d4ca648af6ed0f95edbab8, type: 2}
 --- !u!1 &399232820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3375,6 +3422,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 801467620547720143, guid: f85491eeddf882c4bbc588ce304e4dd4, type: 3}
   m_PrefabInstance: {fileID: 910951252}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &940536366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940536367}
+  - component: {fileID: 940536368}
+  m_Layer: 0
+  m_Name: ObjectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940536367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940536366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940536368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940536366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 568fed68cc15bcf45b55d55a575f30f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDestroy: 0
 --- !u!1 &987014211
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,7 +3715,7 @@ GameObject:
   - component: {fileID: 1139903275}
   - component: {fileID: 1139903274}
   m_Layer: 0
-  m_Name: TilemapWayPoints
+  m_Name: WayPoints1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4076,7 +4168,7 @@ GameObject:
   - component: {fileID: 1596512537}
   - component: {fileID: 1596512536}
   m_Layer: 0
-  m_Name: TilemapDepolyPoints
+  m_Name: DepolyPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6167,3 +6259,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 987014213}
+  - {fileID: 248313936}
+  - {fileID: 940536367}
