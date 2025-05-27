@@ -13,7 +13,7 @@ public class StageManager : Singletone<StageManager>
 
         CurrentStageIndex = stageIndex;
 
-        //await MapManager.Instance.맵초기화(스테이지_Data.오브젝트명_string);
+        await MapManager.Instance.CreateMap(stageData.MapAddressableKey);
 
         ////스테이지UI매니저.진행중인스테이지UI업데이트(GameManager.Instance.선택된스테이지번호_int);
 

@@ -15,7 +15,7 @@ public class DataManager : Singletone<DataManager>
 
     #region 데이터 변환
 
-    private void InnerInitData()
+    private void InitData()
     {
         InitStageData();
         InitEnemyData();
@@ -77,7 +77,7 @@ public class DataManager : Singletone<DataManager>
             return;
         }
 
-        InnerInitData();
+        InitData();
         await UniTask.WaitUntil(() => IsInit);
     }
 

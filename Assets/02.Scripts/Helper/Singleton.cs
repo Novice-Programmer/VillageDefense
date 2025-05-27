@@ -20,8 +20,6 @@ public class Singletone<T> : MonoBehaviour where T : MonoBehaviour
             _instance = obj.AddComponent(typeof(T)) as T;
             obj.name = typeof(T).ToString();
 
-            DontDestroyOnLoad(obj);
-
             return _instance;
         }
         protected set => _instance = value;
@@ -30,7 +28,7 @@ public class Singletone<T> : MonoBehaviour where T : MonoBehaviour
     private void Awake()
     {
         Instance = this.GetComponent(typeof(T)) as T;
-        if (IsDestroy)
+        if (!IsDestroy)
         {
             DontDestroyOnLoad(this);
         }
