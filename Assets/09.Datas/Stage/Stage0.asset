@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7259ee240529d24ebebd37484c1d6f5, type: 3}
   m_Name: Stage0
   m_EditorClassIdentifier: 
+  Index: 0
+  VillageName: "\uC2DC\uC791\uC758 \uB9C8\uC744"
+  Description: 
+  ImageAddressableKey: 
+  MapAddressableKey: 
   StageWaitTime: 10
   WaveDatas:
   - WaveWaitTime: 0
     SpawnDatas:
-    - SpawnWaitTime: 0.5
+    - WayPointIndex: 0
       SpawnCount: 20
-      EnemyScriptable: {fileID: 11400000, guid: 6b8252be18864e0438b057012e70c654, type: 2}
+      SpawnWaitTime: 0.5
+      EnemyData: {fileID: 11400000, guid: 6b8252be18864e0438b057012e70c654, type: 2}

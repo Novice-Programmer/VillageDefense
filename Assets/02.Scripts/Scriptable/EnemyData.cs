@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyScriptable", menuName = "Scriptable Objects/EnemyScriptable")]
-public class EnemyScriptable : ScriptableObject
+[CreateAssetMenu(fileName = "EnemyData", menuName = "Scriptable Objects/Data/EnemyData")]
+public class EnemyData : ScriptableObject
 {
     public EnemyEnum.EName Name;
     public EnemyEnum.ERank Rank;
     public int Level;
 
-    public Sprite Appearance;
+    public string ImageAddressableKey;
 
     public float Health;
     public float HealthRegen;
