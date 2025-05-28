@@ -16,7 +16,7 @@ MonoBehaviour:
   VillageName: "\uC2DC\uC791\uC758 \uB9C8\uC744"
   Description: 
   ImageAddressableKey: 
-  MapAddressableKey: 
+  MapAddressableKey: Map_Stage_001
   StageWaitTime: 10
   WaveDatas:
   - WaveWaitTime: 0

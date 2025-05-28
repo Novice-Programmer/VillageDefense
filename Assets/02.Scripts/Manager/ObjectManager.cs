@@ -51,26 +51,29 @@ public class ObjectManager : Singletone<ObjectManager>
     /// <returns></returns>
     public async UniTask<T> LoadTObject_UniTask<T>(string addressableKey) where T : TObject
     {
-        var loadObject = await LoadObject_UniTask<TObject>(addressableKey);
-        
-        if (loadObject == null)
+        var loadGameObject = await LoadObject_UniTask<GameObject>(addressableKey);
+        if (loadGameObject == null)
         {
             return null;
         }
 
-        TObject tObject;
-
-        if (loadObject.IsPooling)
+        if(!loadGameObject.TryGetComponent<TObject>(out var tObject))
         {
-            tObject = PoolManager.Instance.GetPoolObject(addressableKey, loadObject) as T;
+            return null;
+        }
+
+        TObject returnObject;
+        if (tObject.IsPooling)
+        {
+            returnObject = PoolManager.Instance.GetPoolObject(addressableKey, tObject);
         }
 
         else
         {
-            tObject = Instantiate(loadObject);
+            returnObject = Instantiate(tObject);
         }
 
-        return tObject as T;
+        return returnObject as T;
     }
 
 

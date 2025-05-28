@@ -60,9 +60,9 @@ public class DataManager : Singletone<DataManager>
         }
 
         // 정렬
-        foreach (var enemyName in m_EnemyDatas.Keys)
+        foreach (var enemyName in m_EnemyDatas.Keys.ToList())
         {
-            foreach (var enemyRank in m_EnemyDatas[enemyName].Keys)
+            foreach (var enemyRank in m_EnemyDatas[enemyName].Keys.ToList())
             {
                 var enemyLevelDatas = m_EnemyDatas[enemyName][enemyRank];
                 m_EnemyDatas[enemyName][enemyRank] = enemyLevelDatas.OrderBy(v => v.Level).ToList();

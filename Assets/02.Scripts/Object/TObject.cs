@@ -55,7 +55,7 @@ public class TObject : MonoBehaviour
 
     protected virtual void ReleaseActiveToken()
     {
-        if(ActiveCancellationToken == null || ActiveCancellationToken.IsCancellationRequested)
+        if (ActiveCancellationToken == null || ActiveCancellationToken.IsCancellationRequested)
         {
             return;
         }
@@ -79,11 +79,11 @@ public class TObject : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public async UniTask OnObjectActive_UniTask(CancellationToken activeCancellationToken, float runDelay = 0f)
+    public async UniTask OnObjectActive_UniTask(float runDelay = 0f)
     {
         try
         {
-            await UniTask.WaitForSeconds(runDelay, cancellationToken: activeCancellationToken);
+            await UniTask.WaitForSeconds(runDelay, cancellationToken: ObjectCancellationToken.Token);
             if (IsOn)
             {
                 return;
