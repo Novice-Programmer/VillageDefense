@@ -6,24 +6,26 @@ public class EnemyData : ScriptableObject
     public EnemyEnum.EName Name;
     public EnemyEnum.ERank Rank;
     public int Level;
+    public float Exp;
 
     public string ImageAddressableKey;
+    public string ObjectAddressableKey;
 
     public float Health;
-    public float HealthRegen;
+    public float Mana;
 
-    public float AttackSpeed;
+    public float Vitality;
+    public float Mentality;
+    public float Strength;
+    public float Dexterity;
+    public float Intelligence;
 
     public float PhysicalAttack;
-    public float PhysicalPenetration;
     public float PhysicalDefense;
-    public float PhysicalReduction;
 
     public float MagicAttack;
-    public float MagicPenetration;
     public float MagicDefense;
-    public float MagicReduction;
 
-    public float Speed;
-    public float Exp;
+    public float AttackSpeed;
+    public float MoveSpeed;
 }

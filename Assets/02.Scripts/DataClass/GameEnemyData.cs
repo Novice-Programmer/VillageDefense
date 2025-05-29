@@ -3,30 +3,31 @@ public class GameEnemyData
     public EnemyEnum.EName Name;
     public EnemyEnum.ERank Rank;
     public int Level;
+    public float Exp;
 
     public string ImageAddressableKey;
+    public string ObjectAddressableKey;
 
     public float Health;
-    public float HealthRegen;
+    public float Mana;
 
-    public float AttackSpeed;
+    public float Vitality;
+    public float Mentality;
+    public float Strength;
+    public float Dexterity;
+    public float Intelligence;
 
     public float PhysicalAttack;
-    public float PhysicalPenetration;
     public float PhysicalDefense;
-    public float PhysicalReduction;
 
     public float MagicAttack;
-    public float MagicPenetration;
     public float MagicDefense;
-    public float MagicReduction;
 
-    public float Speed;
-    public float Exp;
+    public float AttackSpeed;
+    public float MoveSpeed;
 
     public GameEnemyData()
     {
-
     }
 
     public GameEnemyData(EnemyData enemyData)
@@ -34,26 +35,28 @@ public class GameEnemyData
         Name = enemyData.Name;
         Rank = enemyData.Rank;
         Level = enemyData.Level;
+        Exp = enemyData.Exp;
 
         ImageAddressableKey = enemyData.ImageAddressableKey;
+        ObjectAddressableKey = enemyData.ObjectAddressableKey;
 
         Health = enemyData.Health;
-        HealthRegen = enemyData.HealthRegen;
+        Mana = enemyData.Mana;
 
-        AttackSpeed = enemyData.AttackSpeed;
+        Vitality = enemyData.Vitality;
+        Mentality = enemyData.Mentality;
+        Strength = enemyData.Strength;
+        Dexterity = enemyData.Dexterity;
+        Intelligence = enemyData.Intelligence;
 
         PhysicalAttack = enemyData.PhysicalAttack;
-        PhysicalPenetration = enemyData.PhysicalPenetration;
         PhysicalDefense = enemyData.PhysicalDefense;
-        PhysicalReduction = enemyData.PhysicalReduction;
 
         MagicAttack = enemyData.MagicAttack;
-        MagicPenetration = enemyData.MagicPenetration;
         MagicDefense = enemyData.MagicDefense;
-        MagicReduction = enemyData.MagicReduction;
 
-        Speed = enemyData.Speed;
-        Exp = enemyData.Exp;
+        AttackSpeed = enemyData.AttackSpeed;
+        MoveSpeed = enemyData.MoveSpeed;
     }
 
     public GameEnemyData Copy()
@@ -63,26 +66,28 @@ public class GameEnemyData
             Name = this.Name,
             Rank = this.Rank,
             Level = this.Level,
+            Exp = this.Exp,
 
             ImageAddressableKey = this.ImageAddressableKey,
+            ObjectAddressableKey = this.ObjectAddressableKey,
 
             Health = this.Health,
-            HealthRegen = this.HealthRegen,
+            Mana = this.Mana,
 
-            AttackSpeed = this.AttackSpeed,
+            Vitality = this.Vitality,
+            Mentality = this.Mentality,
+            Strength = this.Strength,
+            Dexterity = this.Dexterity,
+            Intelligence = this.Intelligence,
 
             PhysicalAttack = this.PhysicalAttack,
-            PhysicalPenetration = this.PhysicalPenetration,
             PhysicalDefense = this.PhysicalDefense,
-            PhysicalReduction = this.PhysicalReduction,
 
             MagicAttack = this.MagicAttack,
-            MagicPenetration = this.MagicPenetration,
             MagicDefense = this.MagicDefense,
-            MagicReduction = this.MagicReduction,
 
-            Speed = this.Speed,
-            Exp = this.Exp,
+            AttackSpeed = this.AttackSpeed,
+            MoveSpeed = this.MoveSpeed,
         };
     }
 }

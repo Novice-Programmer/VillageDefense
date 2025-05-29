@@ -21,4 +21,23 @@ public class EnemyEnum
         Red,
         Black,
     }
+
+    public enum EStatType
+    {
+        Health,
+        Mana,
+        Vitality,
+        Mentality,
+        Strength,
+        Dexterity,
+        Intelligence,
+    }
+
+    public enum EValueType
+    {
+        Health,
+        Mana,
+        HpRegen,
+        MpRegen,
+    }
 }

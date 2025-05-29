@@ -12,7 +12,7 @@ public class TObject : MonoBehaviour
     [HideInInspector] public int Index;
     [HideInInspector] public bool IsOn;
 
-    private CancellationTokenSource ActiveCancellationToken;
+    protected CancellationTokenSource ActiveCancellationToken;
     private readonly CancellationTokenSource ObjectCancellationToken = new();
 
     private void OnEnable()
