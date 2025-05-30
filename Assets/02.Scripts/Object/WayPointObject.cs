@@ -26,23 +26,13 @@ public class WayPointObject : MonoBehaviour
         m_IsInit = true;
     }
 
-    public Vector3 GetStartPosition()
+    public WayPointData GetWayPointData()
     {
-        if (!m_IsInit)
+        if(!m_IsInit)
         {
             InitPosition();
         }
 
-        return m_StartPosition;
-    }
-
-    public List<Vector3> GetWayPointPositions()
-    {
-        if (!m_IsInit)
-        {
-            InitPosition();
-        }
-
-        return m_WayPointPositions;
+        return new WayPointData(m_StartPosition, m_WayPointPositions);
     }
 }

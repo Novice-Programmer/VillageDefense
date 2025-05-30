@@ -31,6 +31,7 @@ public class EnemyEnum
         Strength,
         Dexterity,
         Intelligence,
+        Luck,
     }
 
     public enum EValueType
@@ -39,5 +40,18 @@ public class EnemyEnum
         Mana,
         HpRegen,
         MpRegen,
+        CriticalRate,
+        CriticalResistRate,
+        CriticalDamage,
+        Accuracy,
+        Evasion,
+        PhysicalAttack,
+        PhysicalDefense,
+        PhysicalPenetration,
+        PhysicalReduction,
+        MagicAttack,
+        MagicDefense,
+        MagicPenetration,
+        MagicReduction,
     }
 }

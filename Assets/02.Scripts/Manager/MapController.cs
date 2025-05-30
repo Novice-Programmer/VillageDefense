@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,15 +19,19 @@ public class MapController : MonoBehaviour
             SelectTile(Input.mousePosition);
         }
     }
-
-    public async UniTask CreateMap(string mapAddressableKey)
-    {
-        m_MapObject = await ObjectManager.Instance.LoadTObject_UniTask<MapObject>(mapAddressableKey);
-        await m_MapObject.OnObjectActive_UniTask();
-    }
-
     private void SelectTile(Vector3 mousePosition)
     {
         var worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    }
+
+    public Dictionary<int, WayPointData> GetWayPointDatas()
+    {
+        return m_MapObject.WayPointDatas;
+    }
+
+    public async UniTask CreateMap(string mapAddressableKey)
+    {
+        m_MapObject = await ObjectManager.Instance.SpawnTObject_UniTask<MapObject>(mapAddressableKey);
+        await m_MapObject.OnObjectActive_UniTask();
     }
 }

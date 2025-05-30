@@ -12,8 +12,8 @@ public class TObject : MonoBehaviour
     [HideInInspector] public int Index;
     [HideInInspector] public bool IsOn;
 
-    protected CancellationTokenSource ActiveCancellationToken;
-    private readonly CancellationTokenSource ObjectCancellationToken = new();
+    protected CancellationTokenSource m_ActiveCancellationToken;
+    private readonly CancellationTokenSource m_ObjectCancellationToken = new();
 
     private void OnEnable()
     {
@@ -49,25 +49,25 @@ public class TObject : MonoBehaviour
     {
         ReleaseActiveToken();
 
-        ObjectCancellationToken.Cancel();
-        ObjectCancellationToken.Dispose();
+        m_ObjectCancellationToken.Cancel();
+        m_ObjectCancellationToken.Dispose();
     }
 
     protected virtual void ReleaseActiveToken()
     {
-        if (ActiveCancellationToken == null || ActiveCancellationToken.IsCancellationRequested)
+        if (m_ActiveCancellationToken == null || m_ActiveCancellationToken.IsCancellationRequested)
         {
             return;
         }
 
-        ActiveCancellationToken.Cancel();
-        ActiveCancellationToken.Dispose();
+        m_ActiveCancellationToken.Cancel();
+        m_ActiveCancellationToken.Dispose();
     }
 
     protected virtual void ObjectActive()
     {
         ReleaseActiveToken();
-        ActiveCancellationToken = new();
+        m_ActiveCancellationToken = new();
         IsOn = true;
         gameObject.SetActive(true);
     }
@@ -83,7 +83,7 @@ public class TObject : MonoBehaviour
     {
         try
         {
-            await UniTask.WaitForSeconds(runDelay, cancellationToken: ObjectCancellationToken.Token);
+            await UniTask.WaitForSeconds(runDelay, cancellationToken: m_ObjectCancellationToken.Token);
             if (IsOn)
             {
                 return;
@@ -107,7 +107,7 @@ public class TObject : MonoBehaviour
     {
         try
         {
-            await UniTask.WaitForSeconds(runDelay, cancellationToken: ObjectCancellationToken.Token);
+            await UniTask.WaitForSeconds(runDelay, cancellationToken: m_ObjectCancellationToken.Token);
             if (!IsOn)
             {
                 return;

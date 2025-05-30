@@ -19,6 +19,7 @@ public class PoolManager : Singletone<PoolManager>
         if (PoolDatas[addressableKey].PoolObjects.Count == 0)
         {
             var createObject = Instantiate(objectPrefab, PoolDatas[addressableKey].ParentObject.transform);
+            createObject.gameObject.SetActive(false);
             PoolDatas[addressableKey].PoolObjects.Enqueue(createObject);
         }
 

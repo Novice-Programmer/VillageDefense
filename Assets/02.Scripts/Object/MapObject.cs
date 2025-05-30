@@ -8,23 +8,28 @@ public class MapObject : TObject
     [SerializeField] private Tilemap DeployTilemap;
     [SerializeField] private List<WayPointObject> WayPointObjects;
 
-    private readonly List<TileData> RoadTileDatas = new();
-    private readonly List<TileData> DeployTileDatas = new();
-    private readonly Dictionary<Vector3Int, TileData> TileDatas = new();
+    public Dictionary<int, WayPointData> WayPointDatas => m_WayPointDatas;
+
+    private readonly List<TileData> m_RoadTileDatas = new();
+    private readonly List<TileData> m_DeployTileDatas = new();
+    private readonly Dictionary<Vector3Int, TileData> m_TileDatas = new();
+    private readonly Dictionary<int, WayPointData> m_WayPointDatas = new();
+
 
     protected override void ObjectActive()
     {
         base.ObjectActive();
 
-        TileDatas.Clear();
+        m_TileDatas.Clear();
 
         InitRoadTileData();
         InitDeployTileData();
+        InitWayPointData();
     }
 
     private void InitDeployTileData()
     {
-        DeployTileDatas.Clear();
+        m_DeployTileDatas.Clear();
 
         var xSize = DeployTilemap.size.x;
         var ySize = DeployTilemap.size.y;
@@ -42,8 +47,8 @@ public class MapObject : TObject
                         continue;
                     }
                     var tileData = new TileData(tilePosition, MapEnum.ETileType.Deploy);
-                    DeployTileDatas.Add(tileData);
-                    TileDatas[tileData.Position] = tileData;
+                    m_DeployTileDatas.Add(tileData);
+                    m_TileDatas[tileData.Position] = tileData;
                 }
             }
         }
@@ -51,7 +56,7 @@ public class MapObject : TObject
 
     private void InitRoadTileData()
     {
-        RoadTileDatas.Clear();
+        m_RoadTileDatas.Clear();
 
         var xSize = RoadTilemap.size.x;
         var ySize = RoadTilemap.size.y;
@@ -64,23 +69,34 @@ public class MapObject : TObject
                 {
                     var tilePosition = new Vector3Int(x, y, z);
                     var tile = RoadTilemap.GetTile<Tile>(tilePosition);
-                    if(tile == null)
+                    if (tile == null)
                     {
                         continue;
                     }
                     var tileData = new TileData(tilePosition, MapEnum.ETileType.Road);
-                    RoadTileDatas.Add(tileData);
-                    if (!TileDatas.ContainsKey(tileData.Position))
+                    m_RoadTileDatas.Add(tileData);
+                    if (!m_TileDatas.ContainsKey(tileData.Position))
                     {
                         Debug.Log($"[MapObject.cs] 중첩 타일 오류 [{tileData.Position}]");
                         continue;
                     }
                     else
                     {
-                        TileDatas[tileData.Position] = tileData;
+                        m_TileDatas[tileData.Position] = tileData;
                     }
                 }
             }
+        }
+    }
+
+    private void InitWayPointData()
+    {
+        m_WayPointDatas.Clear();
+
+        for (int i = 0, iLen = WayPointObjects.Count; i < iLen; i++)
+        {
+            var wayPointObject = WayPointObjects[i];
+            m_WayPointDatas[wayPointObject.Index] = wayPointObject.GetWayPointData();
         }
     }
 }

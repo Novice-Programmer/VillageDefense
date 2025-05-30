@@ -15,17 +15,20 @@ MonoBehaviour:
   Name: 0
   Rank: 0
   Level: 1
-  Appearance: {fileID: 21300000, guid: 5dcc46a5545a1da49bbbeab76bcb733f, type: 3}
-  Health: 100
-  HealthRegen: 2
-  AttackSpeed: 1
-  PhysicalAttack: 17
-  PhysicalPenetration: 0
-  PhysicalDefense: 3
-  PhysicalReduction: 0
-  MagicAttack: 0
-  MagicPenetration: 0
-  MagicDefense: 1
-  MagicReduction: 0
-  Speed: 1
   Exp: 10
+  ImageAddressableKey: Sprite_Rat_White
+  ObjectAddressableKey: Enemy_Default
+  Health: 100
+  Mana: 0
+  Vitality: 0
+  Mentality: 0
+  Strength: 0
+  Dexterity: 0
+  Intelligence: 0
+  Luck: 0
+  PhysicalAttack: 17
+  PhysicalDefense: 3
+  MagicAttack: 0
+  MagicDefense: 1
+  AttackSpeed: 1
+  MoveSpeed: 0

@@ -19,6 +19,7 @@ public class EnemyData : ScriptableObject
     public float Strength;
     public float Dexterity;
     public float Intelligence;
+    public float Luck;
 
     public float PhysicalAttack;
     public float PhysicalDefense;

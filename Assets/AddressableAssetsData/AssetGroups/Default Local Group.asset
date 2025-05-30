@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: f59644845e6fef6418a82fef7f77c20b
   m_SerializeEntries:
+  - m_GUID: 5dcc46a5545a1da49bbbeab76bcb733f
+    m_Address: Sprite_Rat_White
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 692b1aa5d55d4c54d9da0fb6a2c93138
+    m_Address: Enemy_Default
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2e6d36f879ef7b4b88791e26bce962c
     m_Address: Map_Stage_001
     m_ReadOnly: 0

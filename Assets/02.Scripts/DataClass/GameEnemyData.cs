@@ -16,6 +16,7 @@ public class GameEnemyData
     public float Strength;
     public float Dexterity;
     public float Intelligence;
+    public float Luck;
 
     public float PhysicalAttack;
     public float PhysicalDefense;
@@ -48,6 +49,7 @@ public class GameEnemyData
         Strength = enemyData.Strength;
         Dexterity = enemyData.Dexterity;
         Intelligence = enemyData.Intelligence;
+        Luck = enemyData.Luck;
 
         PhysicalAttack = enemyData.PhysicalAttack;
         PhysicalDefense = enemyData.PhysicalDefense;
@@ -79,6 +81,7 @@ public class GameEnemyData
             Strength = this.Strength,
             Dexterity = this.Dexterity,
             Intelligence = this.Intelligence,
+            Luck = this.Luck,
 
             PhysicalAttack = this.PhysicalAttack,
             PhysicalDefense = this.PhysicalDefense,
