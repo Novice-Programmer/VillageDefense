@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject
     public EnemyEnum.ERank Rank;
     public int Level;
     public float Exp;
+    public float VillageDamage;
 
     public string ImageAddressableKey;
     public string ObjectAddressableKey;

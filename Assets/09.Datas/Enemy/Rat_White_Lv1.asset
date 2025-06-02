@@ -31,4 +31,4 @@ MonoBehaviour:
   MagicAttack: 0
   MagicDefense: 1
   AttackSpeed: 1
-  MoveSpeed: 0
+  MoveSpeed: 1

@@ -8,6 +8,21 @@ public class StageManager : Singletone<StageManager>
     [SerializeField] private MapController MapController;
     [SerializeField] private WaveController WaveController;
 
+    private float m_VillageHp;
+    public float VillageHp
+    {
+        get
+        {
+            return m_VillageHp;
+        }
+        set
+        {
+            ChangeVillageHp.Invoke(value);
+            m_VillageHp = value;
+        }
+    }
+    public static Action<float> ChangeVillageHp;
+
     private CancellationTokenSource m_StageCancellationToken;
 
     protected virtual void ReleaseStageToken()
@@ -29,6 +44,8 @@ public class StageManager : Singletone<StageManager>
         {
             return;
         }
+
+        VillageHp = stageData.VillageHp;
 
         await MapController.CreateMap(stageData.MapAddressableKey);
         var wayPointDatas = MapController.GetWayPointDatas();

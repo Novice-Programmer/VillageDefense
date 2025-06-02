@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using EnemyStatType = EnemyEnum.EStatType;
 using EnemyValueType = EnemyEnum.EValueType;
@@ -48,7 +49,6 @@ public class EnemyObject : TObject
     protected float m_AttackSpeed;
     protected float m_MoveSpeed;
 
-    private int m_MoveIndex;
     private List<Vector3> m_WayPointPositions;
 
     protected const float MOVE_CHECK_DISTANCE = 0.05f;
@@ -105,6 +105,9 @@ public class EnemyObject : TObject
         m_MagicDefense = m_EnemyData.MagicDefense + Calculator.CalcStatToValue(EnemyStatType.Vitality, EnemyValueType.MagicDefense, m_EnemyData.Mentality);
         m_MagicPenetration = Calculator.CalcStatToValue(EnemyStatType.Strength, EnemyValueType.MagicPenetration, m_EnemyData.Intelligence);
         m_MagicReduction = Calculator.CalcStatToValue(EnemyStatType.Vitality, EnemyValueType.MagicReduction, m_EnemyData.Mentality);
+
+        m_AttackSpeed = m_EnemyData.AttackSpeed;
+        m_MoveSpeed = m_EnemyData.MoveSpeed;
     }
 
     #endregion
@@ -130,7 +133,8 @@ public class EnemyObject : TObject
 
     public async UniTask MoveEnemy_UniTask()
     {
-        m_MoveIndex = 0;
+        var moveIndex = 0;
+        var movePositions = m_WayPointPositions.Select(v => v).ToList();
         try
         {
             while (true)
@@ -140,14 +144,15 @@ public class EnemyObject : TObject
                     break;
                 }
 
-                var movePosition = m_WayPointPositions[m_MoveIndex];
-                while (Vector3.Distance(transform.position, movePosition) <= MOVE_CHECK_DISTANCE)
+                var movePosition = movePositions[moveIndex];
+                while (MOVE_CHECK_DISTANCE <= Vector3.Distance(transform.position, movePosition))
                 {
                     transform.position = Vector3.MoveTowards(transform.position, movePosition, m_MoveSpeed * Time.deltaTime);
+                    await UniTask.Yield(cancellationToken: m_ActiveCancellationToken.Token);
                 }
 
-                m_MoveIndex++;
-                if (m_MoveIndex == m_WayPointPositions.Count)
+                moveIndex++;
+                if (moveIndex == movePositions.Count)
                 {
                     break;
                 }

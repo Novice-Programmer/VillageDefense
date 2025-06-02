@@ -4,6 +4,7 @@ public class GameEnemyData
     public EnemyEnum.ERank Rank;
     public int Level;
     public float Exp;
+    public float VillageDamage;
 
     public string ImageAddressableKey;
     public string ObjectAddressableKey;
@@ -37,6 +38,7 @@ public class GameEnemyData
         Rank = enemyData.Rank;
         Level = enemyData.Level;
         Exp = enemyData.Exp;
+        VillageDamage = enemyData.VillageDamage;
 
         ImageAddressableKey = enemyData.ImageAddressableKey;
         ObjectAddressableKey = enemyData.ObjectAddressableKey;
@@ -69,6 +71,7 @@ public class GameEnemyData
             Rank = this.Rank,
             Level = this.Level,
             Exp = this.Exp,
+            VillageDamage = this.VillageDamage,
 
             ImageAddressableKey = this.ImageAddressableKey,
             ObjectAddressableKey = this.ObjectAddressableKey,

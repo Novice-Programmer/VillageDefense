@@ -9,6 +9,7 @@ public class GameStageData
     public string ImageAddressableKey;
     public string MapAddressableKey;
     public float StageWaitTime;
+    public float VillageHp;
     public List<GameWaveData> WaveDatas;
 
     public GameStageData()
@@ -24,6 +25,7 @@ public class GameStageData
         ImageAddressableKey = stageData.ImageAddressableKey;
         MapAddressableKey = stageData.MapAddressableKey;
         StageWaitTime = stageData.StageWaitTime;
+        VillageHp = stageData.VillageHp;
         WaveDatas = stageData.WaveDatas.Select(v => new GameWaveData(v)).ToList();
     }
 
@@ -37,6 +39,7 @@ public class GameStageData
             ImageAddressableKey = this.ImageAddressableKey,
             MapAddressableKey = this.MapAddressableKey,
             StageWaitTime = this.StageWaitTime,
+            VillageHp = this.VillageHp,
             WaveDatas = this.WaveDatas.Select(v => v.Copy()).ToList(),
         };
     }

@@ -10,5 +10,6 @@ public class StageData : ScriptableObject
     public string ImageAddressableKey;
     public string MapAddressableKey;
     public float StageWaitTime;
+    public float VillageHp;
     public List<WaveData> WaveDatas;
 }
