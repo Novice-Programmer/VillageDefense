@@ -16,3 +16,22 @@ public class TileData
         TileType = tileType;
     }
 }
+
+public class GameTileData
+{
+    public Vector3Int Position;
+    public MapEnum.ETileType TileType;
+    public TObject TObject;
+
+    public GameTileData()
+    {
+
+    }
+
+    public GameTileData(TileData tileData)
+    {
+        Position = tileData.Position;
+        TileType = tileData.TileType;
+        TObject = null;
+    }
+}

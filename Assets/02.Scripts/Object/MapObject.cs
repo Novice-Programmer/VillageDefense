@@ -10,17 +10,14 @@ public class MapObject : TObject
 
     public Dictionary<int, WayPointData> WayPointDatas => m_WayPointDatas;
 
-    private readonly List<TileData> m_RoadTileDatas = new();
-    private readonly List<TileData> m_DeployTileDatas = new();
-    private readonly Dictionary<Vector3Int, TileData> m_TileDatas = new();
+    private readonly Dictionary<Vector3Int, GameTileData> m_RoadTileDatas = new();
+    private readonly Dictionary<Vector3Int, GameTileData> m_DeployTileDatas = new();
     private readonly Dictionary<int, WayPointData> m_WayPointDatas = new();
 
 
     protected override void ObjectActive()
     {
         base.ObjectActive();
-
-        m_TileDatas.Clear();
 
         InitRoadTileData();
         InitDeployTileData();
@@ -47,8 +44,7 @@ public class MapObject : TObject
                         continue;
                     }
                     var tileData = new TileData(tilePosition, MapEnum.ETileType.Deploy);
-                    m_DeployTileDatas.Add(tileData);
-                    m_TileDatas[tileData.Position] = tileData;
+                    m_DeployTileDatas[tilePosition] = new(tileData);
                 }
             }
         }
@@ -74,16 +70,7 @@ public class MapObject : TObject
                         continue;
                     }
                     var tileData = new TileData(tilePosition, MapEnum.ETileType.Road);
-                    m_RoadTileDatas.Add(tileData);
-                    if (!m_TileDatas.ContainsKey(tileData.Position))
-                    {
-                        Debug.Log($"[MapObject.cs] 중첩 타일 오류 [{tileData.Position}]");
-                        continue;
-                    }
-                    else
-                    {
-                        m_TileDatas[tileData.Position] = tileData;
-                    }
+                    m_RoadTileDatas[tilePosition] = new(tileData);
                 }
             }
         }
