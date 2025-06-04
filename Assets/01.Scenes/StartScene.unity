@@ -193,7 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroy: 0
-  VillageScriptables: []
+  StageCollection: {fileID: 11400000, guid: ab9ce20cc86ddfc40b4b25962eb549bc, type: 2}
+  EnemyCollection: {fileID: 11400000, guid: dbbecafc8b888f0409c37a20520256d7, type: 2}
 --- !u!4 &446557220
 Transform:
   m_ObjectHideFlags: 0
