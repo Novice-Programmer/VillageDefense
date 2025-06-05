@@ -7,9 +7,13 @@ public class DataManager : Singletone<DataManager>
 {
     [SerializeField] private StageCollection StageCollection;
     [SerializeField] private EnemyCollection EnemyCollection;
+    [SerializeField] private MasteryCollection MasteryCollection;
+    [SerializeField] private CircleCollection CircleCollection;
 
     private readonly Dictionary<int, GameStageData> m_StageDatas = new();
-    private readonly Dictionary<EnemyEnum.EName, Dictionary<EnemyEnum.ERank, List<GameEnemyData>>> m_EnemyDatas = new();
+    private readonly Dictionary<EnemyEnum.EName, Dictionary<EnemyEnum.ERank, Dictionary<int, GameEnemyData>>> m_EnemyDatas = new();
+    private readonly Dictionary<CharacterEnum.EMasteryType, Dictionary<int, GameMasteryLevelData>> m_MasteryDatas = new();
+    private readonly Dictionary<CharacterEnum.ECircleType, Dictionary<int, GameCircleLevelData>> m_CircleDatas = new();
 
     private bool IsInit = false;
 
@@ -19,26 +23,22 @@ public class DataManager : Singletone<DataManager>
     {
         InitStageData();
         InitEnemyData();
+        InitMasteryData();
+        InitCircleData();
 
         IsInit = true;
     }
 
-    /// <summary>
-    /// 스테이지 정보 변환 후 저장
-    /// </summary>
     private void InitStageData()
     {
         var stageDatas = StageCollection.StageDatas;
         for (int i = 0, iLen = stageDatas.Count; i < iLen; i++)
         {
             var stageData = stageDatas[i];
-            m_StageDatas.Add(stageData.Index, new(stageData));
+            m_StageDatas.Add(stageData.KeyData.Index, new(stageData));
         }
     }
 
-    /// <summary>
-    /// 적 정보 변환 후 이름과 랭크로 구분 짓고 레벨로 정렬 후 저장
-    /// </summary>
     private void InitEnemyData()
     {
         // 저장
@@ -46,26 +46,56 @@ public class DataManager : Singletone<DataManager>
         for (int i = 0, iLen = enemyDatas.Count; i < iLen; i++)
         {
             var enemyData = enemyDatas[i];
-            if (!m_EnemyDatas.ContainsKey(enemyData.Name))
+            if (!m_EnemyDatas.TryGetValue(enemyData.KeyData.Name, out var rankDict))
             {
-                m_EnemyDatas[enemyData.Name] = new();
+                rankDict = m_EnemyDatas[enemyData.KeyData.Name] = new();
             }
 
-            if (!m_EnemyDatas[enemyData.Name].ContainsKey(enemyData.Rank))
+            if (!rankDict.TryGetValue(enemyData.KeyData.Rank, out var levelDict))
             {
-                m_EnemyDatas[enemyData.Name][enemyData.Rank] = new();
+                levelDict = rankDict[enemyData.KeyData.Rank] = new();
             }
 
-            m_EnemyDatas[enemyData.Name][enemyData.Rank].Add(new(enemyData));
+            levelDict[enemyData.KeyData.Level] = new(enemyData);
         }
+    }
 
-        // 정렬
-        foreach (var enemyName in m_EnemyDatas.Keys.ToList())
+    private void InitMasteryData()
+    {
+        var masteryDatas = MasteryCollection.MasteryDatas;
+        for (int i = 0, iLen = masteryDatas.Count; i < iLen; i++)
         {
-            foreach (var enemyRank in m_EnemyDatas[enemyName].Keys.ToList())
+            var masteryData = masteryDatas[i];
+            if (!m_MasteryDatas.TryGetValue(masteryData.MasteryType, out var typeDict))
             {
-                var enemyLevelDatas = m_EnemyDatas[enemyName][enemyRank];
-                m_EnemyDatas[enemyName][enemyRank] = enemyLevelDatas.OrderBy(v => v.Level).ToList();
+                typeDict = m_MasteryDatas[masteryData.MasteryType] = new();
+            }
+
+            var masteryLevelDatas = masteryData.MasteryLevelDatas;
+            for (int j = 0, jLen = masteryLevelDatas.Count; j < jLen; j++)
+            {
+                var masteryLevelData = masteryLevelDatas[j];
+                typeDict[masteryLevelData.KeyData.Level] = new(masteryLevelData);
+            }
+        }
+    }
+
+    private void InitCircleData()
+    {
+        var circleDatas = CircleCollection.CircleDatas;
+        for (int i = 0, iLen = circleDatas.Count; i < iLen; i++)
+        {
+            var circleData = circleDatas[i];
+            if (!m_CircleDatas.TryGetValue(circleData.CircleType, out var typeDict))
+            {
+                typeDict = m_CircleDatas[circleData.CircleType] = new();
+            }
+
+            var circleLevelDatas = circleData.CircleLevelDatas;
+            for (int j = 0, jLen = circleLevelDatas.Count; j < jLen; j++)
+            {
+                var circleLevelData = circleLevelDatas[j];
+                typeDict[circleLevelData.KeyData.Level] = new(circleLevelData);
             }
         }
     }
@@ -85,17 +115,31 @@ public class DataManager : Singletone<DataManager>
 
     #region 데이터 반환
 
-    public bool GetStageData(int stageIndex, out GameStageData stageData)
+    public bool GetStageData(StageKeyData keyData, out GameStageData stageData)
     {
-        if (!m_StageDatas.ContainsKey(stageIndex))
-        {
-            stageData = null;
-            return false;
-        }
-
-        stageData = m_StageDatas[stageIndex];
-        return true;
+        return m_StageDatas.TryGetValue(keyData.Index, out stageData);
     }
 
+    public bool GetEnemyData(EnemyKeyData keyData, out GameEnemyData enemyData)
+    {
+        enemyData = null;
+        return m_EnemyDatas.TryGetValue(keyData.Name, out var rankDict)
+            && rankDict.TryGetValue(keyData.Rank, out var levelDict)
+            && levelDict.TryGetValue(keyData.Level, out enemyData);
+    }
+
+    public bool GetMasteryData(MasteryLevelKeyData keyData, out GameMasteryLevelData masteryLevelData)
+    {
+        masteryLevelData = null;
+        return m_MasteryDatas.TryGetValue(keyData.MasteryType, out var typeDict)
+            && typeDict.TryGetValue(keyData.Level, out masteryLevelData);
+    }
+
+    public bool GetCircleData(CircleLevelKeyData keyData, out GameCircleLevelData circleLevelData)
+    {
+        circleLevelData = null;
+        return m_CircleDatas.TryGetValue(keyData.CircleType, out var typeDict)
+            && typeDict.TryGetValue(keyData.Level, out circleLevelData);
+    }
     #endregion
 }

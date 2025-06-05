@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e53af6421661f45b1484957f68f501, type: 3}
+  m_Name: MasteryCollection
+  m_EditorClassIdentifier: 
+  MasteryDatas:
+  - {fileID: 11400000, guid: ee18a84cd5a13434ca78f49f25158fbd, type: 2}
+  - {fileID: 11400000, guid: eb17ddd9b8b2ff54ebec0f9d3cf2b910, type: 2}
+  - {fileID: 11400000, guid: 28eb9c9ce6f99a24e83bc25bddd71b39, type: 2}
+  - {fileID: 11400000, guid: f82a7357e608c1047b2ed4926e520908, type: 2}
+  - {fileID: 11400000, guid: 3a687045456838a4baebf6c79c034e43, type: 2}
+  - {fileID: 11400000, guid: 8bc518102984671419a964968e4ad18e, type: 2}
+  - {fileID: 11400000, guid: 44948e5d8c0baf943ae8ee8183aa6477, type: 2}

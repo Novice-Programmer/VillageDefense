@@ -195,6 +195,8 @@ MonoBehaviour:
   IsDestroy: 0
   StageCollection: {fileID: 11400000, guid: ab9ce20cc86ddfc40b4b25962eb549bc, type: 2}
   EnemyCollection: {fileID: 11400000, guid: dbbecafc8b888f0409c37a20520256d7, type: 2}
+  MasteryCollection: {fileID: 11400000, guid: 01304dec2318b634dae07eb28645ae37, type: 2}
+  CircleCollection: {fileID: 11400000, guid: 1c3aa8d58765fef44a68f747336e84c2, type: 2}
 --- !u!4 &446557220
 Transform:
   m_ObjectHideFlags: 0

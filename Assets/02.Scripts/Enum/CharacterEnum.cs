@@ -60,9 +60,17 @@ public class CharacterEnum
 
     public enum ECircleType
     {
+        Magic,
         Fire,
         Ice,
-        Wind,
-        Earth,
+        Lightning
+    }
+
+    public enum EEquipmentType
+    {
+        Helmet,
+        Chest,
+        Gloves,
+        Boots
     }
 }

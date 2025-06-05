@@ -12,6 +12,6 @@ public class TestManager : MonoBehaviour
     private async UniTask StartTest()
     {
         await DataManager.Instance.InitData_UniTask();
-        await StageManager.Instance.InitStage_UniTask(0);
+        await StageManager.Instance.InitStage_UniTask(new(0));
     }
 }

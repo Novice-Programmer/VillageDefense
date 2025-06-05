@@ -46,6 +46,21 @@ public class EnemyObject : TObject
     protected float m_MagicPenetration;
     protected float m_MagicReduction;
 
+    protected float m_FireAttack;
+    protected float m_FireDefense;
+    protected float m_FirePenetration;
+    protected float m_FireReduction;
+
+    protected float m_IceAttack;
+    protected float m_IceDefense;
+    protected float m_IcePenetration;
+    protected float m_IceReduction;
+
+    protected float m_LightningAttack;
+    protected float m_LightningDefense;
+    protected float m_LightningPenetration;
+    protected float m_LightningReduction;
+
     protected float m_AttackSpeed;
     protected float m_MoveSpeed;
 
@@ -106,6 +121,21 @@ public class EnemyObject : TObject
         m_MagicPenetration = Calculator.CalcStatToValue(EnemyStatType.Strength, EnemyValueType.MagicPenetration, m_EnemyData.Intelligence);
         m_MagicReduction = Calculator.CalcStatToValue(EnemyStatType.Vitality, EnemyValueType.MagicReduction, m_EnemyData.Mentality);
 
+        m_FireAttack = m_EnemyData.FireAttack;
+        m_FireDefense = m_EnemyData.FireDefense;
+        m_FirePenetration = m_EnemyData.FirePenetration;
+        m_FireReduction = m_EnemyData.FireReduction;
+
+        m_IceAttack = m_EnemyData.IceAttack;
+        m_IceDefense = m_EnemyData.IceDefense;
+        m_IcePenetration = m_EnemyData.IcePenetration;
+        m_IceReduction = m_EnemyData.IceReduction;
+
+        m_LightningAttack = m_EnemyData.LightningAttack;
+        m_LightningDefense = m_EnemyData.LightningDefense;
+        m_LightningPenetration = m_EnemyData.LightningPenetration;
+        m_LightningReduction = m_EnemyData.LightningReduction;
+
         m_AttackSpeed = m_EnemyData.AttackSpeed;
         m_MoveSpeed = m_EnemyData.MoveSpeed;
     }
@@ -163,14 +193,5 @@ public class EnemyObject : TObject
         catch (OperationCanceledException)
         {
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
     }
 }

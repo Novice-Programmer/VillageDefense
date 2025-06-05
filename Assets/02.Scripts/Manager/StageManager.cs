@@ -36,11 +36,11 @@ public class StageManager : Singletone<StageManager>
         m_StageCancellationToken.Dispose();
     }
 
-    public async UniTask InitStage_UniTask(int stageIndex)
+    public async UniTask InitStage_UniTask(StageKeyData keyData)
     {
         ReleaseStageToken();
 
-        if (!DataManager.Instance.GetStageData(stageIndex, out var stageData))
+        if (!DataManager.Instance.GetStageData(keyData, out var stageData))
         {
             return;
         }
