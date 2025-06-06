@@ -128,14 +128,14 @@ public class DataManager : Singletone<DataManager>
             && levelDict.TryGetValue(keyData.Level, out enemyData);
     }
 
-    public bool GetMasteryData(MasteryLevelKeyData keyData, out GameMasteryLevelData masteryLevelData)
+    public bool GetMasteryData(MasteryKeyData keyData, out GameMasteryLevelData masteryLevelData)
     {
         masteryLevelData = null;
         return m_MasteryDatas.TryGetValue(keyData.MasteryType, out var typeDict)
             && typeDict.TryGetValue(keyData.Level, out masteryLevelData);
     }
 
-    public bool GetCircleData(CircleLevelKeyData keyData, out GameCircleLevelData circleLevelData)
+    public bool GetCircleData(CircleKeyData keyData, out GameCircleLevelData circleLevelData)
     {
         circleLevelData = null;
         return m_CircleDatas.TryGetValue(keyData.CircleType, out var typeDict)

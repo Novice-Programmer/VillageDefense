@@ -18,6 +18,6 @@ public class MercenaryData : ScriptableObject
     public float Intelligence;
     public float Luck;
 
-    public List<MasteryLevelKeyData> MasteryLevelKeyDatas;
-    public List<CircleLevelKeyData> CircleLevelKeyDatas;
+    public List<MasteryKeyData> MasteryLevelKeyDatas;
+    public List<CircleKeyData> CircleLevelKeyDatas;
 }

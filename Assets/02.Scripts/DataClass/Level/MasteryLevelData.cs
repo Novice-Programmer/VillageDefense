@@ -3,7 +3,7 @@ using System;
 [Serializable]
 public class MasteryLevelData
 {
-    public MasteryLevelKeyData KeyData;
+    public MasteryKeyData KeyData;
     public float CriticalRate;
     public float CriticalDamage;
     public float Accuracy;

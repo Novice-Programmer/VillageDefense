@@ -3,7 +3,7 @@ using System;
 [Serializable]
 public class CircleLevelData
 {
-    public CircleLevelKeyData KeyData;
+    public CircleKeyData KeyData;
     public float CriticalRate;
     public float CriticalDamage;
     public float Accuracy;

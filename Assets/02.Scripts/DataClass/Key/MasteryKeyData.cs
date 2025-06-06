@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public class MasteryLevelKeyData
+public class MasteryKeyData
 {
     public CharacterEnum.EMasteryType MasteryType;
     public int Level;
