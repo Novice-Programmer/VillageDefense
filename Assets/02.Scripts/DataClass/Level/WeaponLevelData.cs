@@ -1,8 +1,8 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Data/WeaponData")]
-public class WeaponData : ScriptableObject
+[Serializable]
+public class WeaponLevelData
 {
     public WeaponKeyData KeyData;
     public EquipmentEnum.EWeaponType WeaponType;

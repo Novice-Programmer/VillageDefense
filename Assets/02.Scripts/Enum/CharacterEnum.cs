@@ -65,12 +65,4 @@ public class CharacterEnum
         Ice,
         Lightning
     }
-
-    public enum EEquipmentType
-    {
-        Helmet,
-        Chest,
-        Gloves,
-        Boots
-    }
 }

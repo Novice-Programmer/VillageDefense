@@ -1,8 +1,10 @@
-public class WeaponEnum
+using System;
+
+public class EquipmentEnum
 {
     public enum EName
     {
-        BladeoftheKnightCommander
+        LongSword,
     }
 
     public enum ERank
@@ -23,5 +25,13 @@ public class WeaponEnum
         Spear,
         Hammer,
         Bow,
+    }
+
+    public enum EEquipmentType
+    {
+        Helmet,
+        Chest,
+        Gloves,
+        Boots
     }
 }
