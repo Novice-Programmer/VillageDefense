@@ -20,7 +20,7 @@ public class WaveController : MonoBehaviour
                 {
                     continue;
                 }
-                await spawnEnemy.OnObjectDisable_UniTask();
+                await spawnEnemy.DisableObject_UniTask();
             }
 
             SpawnEnemys.Clear();
@@ -64,14 +64,14 @@ public class WaveController : MonoBehaviour
                             Debug.LogWarning($"[WaveController.cs] ({nameof(InitWaveData_UniTask)}) Warning [Not Enemy Data]");
                             continue;
                         }
-                        var enemyObject = await ObjectManager.Instance.SpawnTObject_UniTask<EnemyObject>(enemyData.ObjectAddressableKey);
+                        var enemyObject = await ObjectManager.Instance.GetTObject_UniTask<EnemyObject>(enemyData.ObjectAddressableKey);
                         if(enemyObject == null)
                         {
                             Debug.LogWarning($"[WaveController.cs] ({nameof(InitWaveData_UniTask)}) Warning [Not EnemyObject]");
                             continue;
                         }
                         await enemyObject.InitEnemy_UniTask(enemyData, wayPointData);
-                        await enemyObject.OnObjectActive_UniTask();
+                        await enemyObject.ActiveObject_UniTask();
                     }
                 }
                 waveIndex++;

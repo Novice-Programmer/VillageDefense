@@ -49,7 +49,7 @@ public class ObjectManager : Singletone<ObjectManager>
     /// <typeparam name="T"></typeparam>
     /// <param name="addressableKey"></param>
     /// <returns></returns>
-    public async UniTask<T> SpawnTObject_UniTask<T>(string addressableKey) where T : TObject
+    public async UniTask<T> GetTObject_UniTask<T>(string addressableKey) where T : TObject
     {
         var loadGameObject = await LoadObject_UniTask<GameObject>(addressableKey);
         if (loadGameObject == null)
@@ -72,6 +72,8 @@ public class ObjectManager : Singletone<ObjectManager>
         {
             returnObject = Instantiate(tObject);
         }
+
+        returnObject.gameObject.SetActive(false);
 
         return returnObject as T;
     }

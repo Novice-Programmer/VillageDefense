@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BackendManager : Singletone<BackendManager>
 {
-    public bool IsInit;
+    [HideInInspector] public bool IsInit;
     protected override void SingletonAwake()
     {
         base.SingletonAwake();

@@ -64,7 +64,7 @@ public class TObject : MonoBehaviour
         m_ActiveCancellationToken.Dispose();
     }
 
-    protected virtual void ObjectActive()
+    protected virtual void OnObjectActive()
     {
         ReleaseActiveToken();
         m_ActiveCancellationToken = new();
@@ -72,14 +72,14 @@ public class TObject : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    protected virtual void ObjectDisable()
+    protected virtual void OnObjectDisable()
     {
         ReleaseActiveToken();
         IsOn = false;
         gameObject.SetActive(false);
     }
 
-    public async UniTask OnObjectActive_UniTask(float runDelay = 0f)
+    public async UniTask ActiveObject_UniTask(float runDelay = 0f)
     {
         try
         {
@@ -88,7 +88,7 @@ public class TObject : MonoBehaviour
             {
                 return;
             }
-            ObjectActive();
+            OnObjectActive();
         }
         catch (ObjectDisposedException)
         {
@@ -99,11 +99,11 @@ public class TObject : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.Log($"[TObject.cs] ({nameof(OnObjectActive_UniTask)}) catch [{ex.Message}]");
+            Debug.Log($"[TObject.cs] ({nameof(ActiveObject_UniTask)}) catch [{ex.Message}]");
         }
     }
 
-    public async UniTask OnObjectDisable_UniTask(float runDelay = 0f)
+    public async UniTask DisableObject_UniTask(float runDelay = 0f)
     {
         try
         {
@@ -112,7 +112,7 @@ public class TObject : MonoBehaviour
             {
                 return;
             }
-            ObjectDisable();
+            OnObjectDisable();
             if (!IsPooling)
             {
                 Destroy(gameObject);
@@ -129,7 +129,7 @@ public class TObject : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.Log($"[TObject.cs] ({nameof(OnObjectDisable_UniTask)}) catch [{ex.Message}]");
+            Debug.Log($"[TObject.cs] ({nameof(DisableObject_UniTask)}) catch [{ex.Message}]");
         }
     }
 }

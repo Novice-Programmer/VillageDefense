@@ -31,7 +31,7 @@ public class MapController : MonoBehaviour
 
     public async UniTask CreateMap(string mapAddressableKey)
     {
-        m_MapObject = await ObjectManager.Instance.SpawnTObject_UniTask<MapObject>(mapAddressableKey);
-        await m_MapObject.OnObjectActive_UniTask();
+        m_MapObject = await ObjectManager.Instance.GetTObject_UniTask<MapObject>(mapAddressableKey);
+        await m_MapObject.ActiveObject_UniTask();
     }
 }

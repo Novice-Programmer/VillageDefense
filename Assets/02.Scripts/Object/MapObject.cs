@@ -15,9 +15,9 @@ public class MapObject : TObject
     private readonly Dictionary<int, WayPointData> m_WayPointDatas = new();
 
 
-    protected override void ObjectActive()
+    protected override void OnObjectActive()
     {
-        base.ObjectActive();
+        base.OnObjectActive();
 
         InitRoadTileData();
         InitDeployTileData();

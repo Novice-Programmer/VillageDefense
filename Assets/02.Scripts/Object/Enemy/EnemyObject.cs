@@ -69,15 +69,15 @@ public class EnemyObject : TObject
     protected const float MOVE_CHECK_DISTANCE = 0.05f;
     protected const float DEFAULT_ACCURACY = 0.7f;
 
-    protected override void ObjectActive()
+    protected override void OnObjectActive()
     {
-        base.ObjectActive();
+        base.OnObjectActive();
         MoveEnemy_UniTask().Forget();
     }
 
-    protected override void ObjectDisable()
+    protected override void OnObjectDisable()
     {
-        base.ObjectDisable();
+        base.OnObjectDisable();
     }
 
     #region 능력치
