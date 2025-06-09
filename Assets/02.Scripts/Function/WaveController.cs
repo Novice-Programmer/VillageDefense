@@ -20,7 +20,7 @@ public class WaveController : MonoBehaviour
                 {
                     continue;
                 }
-                await spawnEnemy.DisableObject_UniTask();
+                await spawnEnemy.DisactiveObject_UniTask();
             }
 
             SpawnEnemys.Clear();

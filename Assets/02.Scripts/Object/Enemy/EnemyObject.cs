@@ -75,9 +75,9 @@ public class EnemyObject : TObject
         MoveEnemy_UniTask().Forget();
     }
 
-    protected override void OnObjectDisable()
+    protected override void OnObjectDisactive()
     {
-        base.OnObjectDisable();
+        base.OnObjectDisactive();
     }
 
     #region 능력치

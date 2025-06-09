@@ -15,36 +15,6 @@ public class TObject : MonoBehaviour
     protected CancellationTokenSource m_ActiveCancellationToken;
     private readonly CancellationTokenSource m_ObjectCancellationToken = new();
 
-    private void OnEnable()
-    {
-        OnEnableSetting();
-    }
-
-    protected virtual void OnEnableSetting()
-    {
-
-    }
-
-    private void OnDisable()
-    {
-        OnDisableSetting();
-    }
-
-    protected virtual void OnDisableSetting()
-    {
-
-    }
-
-    private void Start()
-    {
-        StartSetting();
-    }
-
-    protected virtual void StartSetting()
-    {
-
-    }
-
     private void OnDestroy()
     {
         ReleaseActiveToken();
@@ -72,7 +42,7 @@ public class TObject : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    protected virtual void OnObjectDisable()
+    protected virtual void OnObjectDisactive()
     {
         ReleaseActiveToken();
         IsOn = false;
@@ -103,7 +73,7 @@ public class TObject : MonoBehaviour
         }
     }
 
-    public async UniTask DisableObject_UniTask(float runDelay = 0f)
+    public async UniTask DisactiveObject_UniTask(float runDelay = 0f)
     {
         try
         {
@@ -112,7 +82,7 @@ public class TObject : MonoBehaviour
             {
                 return;
             }
-            OnObjectDisable();
+            OnObjectDisactive();
             if (!IsPooling)
             {
                 Destroy(gameObject);
@@ -129,7 +99,7 @@ public class TObject : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.Log($"[TObject.cs] ({nameof(DisableObject_UniTask)}) catch [{ex.Message}]");
+            Debug.Log($"[TObject.cs] ({nameof(DisactiveObject_UniTask)}) catch [{ex.Message}]");
         }
     }
 }
