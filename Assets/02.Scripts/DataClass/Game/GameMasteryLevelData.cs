@@ -1,6 +1,6 @@
 public class GameMasteryLevelData
 {
-    public CharacterEnum.EMasteryType MasteryType;
+    public CharacterHelper.EMasteryType MasteryType;
     public int Level;
     public float CriticalRate;
     public float CriticalDamage;

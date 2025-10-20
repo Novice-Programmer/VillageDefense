@@ -1,4 +1,4 @@
-public class MapEnum
+public class MapHelper
 {
     public enum ETileType
     {

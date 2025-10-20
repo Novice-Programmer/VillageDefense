@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MercenaryData", menuName = "Scriptable Objects/Data/MercenaryData")]
 public class MercenaryData : ScriptableObject
 {
-    public CharacterEnum.EName Name;
-    public CharacterEnum.ERank Rank;
+    public CharacterHelper.EName Name;
+    public CharacterHelper.ERank Rank;
     public int Level;
 
     public float Health;

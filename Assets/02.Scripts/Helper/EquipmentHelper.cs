@@ -1,6 +1,4 @@
-using System;
-
-public class EquipmentEnum
+public class EquipmentHelper
 {
     public enum EName
     {

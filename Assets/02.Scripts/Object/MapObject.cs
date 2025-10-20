@@ -43,7 +43,7 @@ public class MapObject : TObject
                     {
                         continue;
                     }
-                    var tileData = new TileData(tilePosition, MapEnum.ETileType.Deploy);
+                    var tileData = new TileData(tilePosition, MapHelper.ETileType.Deploy);
                     m_DeployTileDatas[tilePosition] = new(tileData);
                 }
             }
@@ -69,7 +69,7 @@ public class MapObject : TObject
                     {
                         continue;
                     }
-                    var tileData = new TileData(tilePosition, MapEnum.ETileType.Road);
+                    var tileData = new TileData(tilePosition, MapHelper.ETileType.Road);
                     m_RoadTileDatas[tilePosition] = new(tileData);
                 }
             }

@@ -3,14 +3,14 @@ using UnityEngine;
 public class TileData
 {
     public Vector3Int Position;
-    public MapEnum.ETileType TileType;
+    public MapHelper.ETileType TileType;
 
     public TileData()
     {
 
     }
 
-    public TileData(Vector3Int position, MapEnum.ETileType tileType = MapEnum.ETileType.None)
+    public TileData(Vector3Int position, MapHelper.ETileType tileType = MapHelper.ETileType.None)
     {
         Position = position;
         TileType = tileType;
@@ -20,7 +20,7 @@ public class TileData
 public class GameTileData
 {
     public Vector3Int Position;
-    public MapEnum.ETileType TileType;
+    public MapHelper.ETileType TileType;
     public TObject TObject;
 
     public GameTileData()

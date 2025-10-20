@@ -9,6 +9,7 @@ public class LoginPopup : PopupUI
     [SerializeField] private TMP_InputField PW_InputField;
     [SerializeField] private Button Login_Btn;
     [SerializeField] private Button SignUp_Btn;
+    [SerializeField] private TextMeshProUGUI Message_Text;
     [SerializeField] private Button FindID_Btn;
     [SerializeField] private Button FindPW_Btn;
 

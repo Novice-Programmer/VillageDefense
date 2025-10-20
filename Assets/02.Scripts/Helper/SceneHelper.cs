@@ -1,4 +1,4 @@
-public class SceneEnum
+public class SceneHelper
 {
     public enum ESceneName
     {

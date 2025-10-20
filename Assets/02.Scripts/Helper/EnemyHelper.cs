@@ -1,4 +1,4 @@
-public class EnemyEnum
+public class EnemyHelper
 {
     public enum EName
     {

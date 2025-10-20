@@ -3,6 +3,6 @@ using System;
 [Serializable]
 public class MasteryKeyData
 {
-    public CharacterEnum.EMasteryType MasteryType;
+    public CharacterHelper.EMasteryType MasteryType;
     public int Level;
 }

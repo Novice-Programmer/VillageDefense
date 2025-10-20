@@ -8,6 +8,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class ObjectManager : Singletone<ObjectManager>
 {
     private readonly Dictionary<string, AddressableData> AddressableDatas = new();
+    private readonly Dictionary<string, AddressableData> SaveAddressableDatas = new();
 
     /// <summary>
     /// 비동기로 오브젝트를 불러옵니다.
@@ -15,14 +16,28 @@ public class ObjectManager : Singletone<ObjectManager>
     /// <typeparam name="T"></typeparam>
     /// <param name="addressableKey"></param>
     /// <returns></returns>
-    public async UniTask<T> LoadObject_UniTask<T>(string addressableKey) where T : UnityEngine.Object
+    public async UniTask<T> LoadObject_UniTask<T>(string addressableKey, bool isSave = false) where T : UnityEngine.Object
     {
-        if (AddressableDatas.ContainsKey(addressableKey))
+        if (!isSave)
         {
-            var addressableData = AddressableDatas[addressableKey];
-            if (addressableData.ObjectHandle.Status == AsyncOperationStatus.Succeeded)
+            if (AddressableDatas.ContainsKey(addressableKey))
             {
-                return addressableData.LoadObject as T;
+                var addressableData = AddressableDatas[addressableKey];
+                if (addressableData.ObjectHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    return addressableData.LoadObject as T;
+                }
+            }
+        }
+        else
+        {
+            if (SaveAddressableDatas.ContainsKey(addressableKey))
+            {
+                var addressableData = SaveAddressableDatas[addressableKey];
+                if (addressableData.ObjectHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    return addressableData.LoadObject as T;
+                }
             }
         }
 
@@ -39,7 +54,14 @@ public class ObjectManager : Singletone<ObjectManager>
             ObjectHandle = objectHandle,
             LoadObject = objectHandle.Result
         };
-        AddressableDatas[addressableKey] = newAddressableData;
+        if (!isSave)
+        {
+            AddressableDatas[addressableKey] = newAddressableData;
+        }
+        else
+        {
+            SaveAddressableDatas[addressableKey] = newAddressableData;
+        }
         return newAddressableData.LoadObject as T;
     }
 
@@ -57,7 +79,7 @@ public class ObjectManager : Singletone<ObjectManager>
             return null;
         }
 
-        if(!loadGameObject.TryGetComponent<TObject>(out var tObject))
+        if (!loadGameObject.TryGetComponent<TObject>(out var tObject))
         {
             return null;
         }

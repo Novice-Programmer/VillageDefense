@@ -1,4 +1,4 @@
-public class CharacterEnum
+public static class CharacterHelper
 {
     public enum EName
     {

@@ -9,7 +9,7 @@ public abstract class PopupUI : TObject
     [SerializeField] protected TextMeshProUGUI Title_Text;
     [SerializeField] protected Button Close_Btn;
 
-    [SerializeField] protected PopupEnum.EPopupName PopupName;
+    [SerializeField] protected PopupHelper.EPopupName PopupName;
     [SerializeField] protected bool IsViewCloseBtn;
 
     protected bool m_IsInit;
@@ -63,7 +63,7 @@ public abstract class PopupUI : TObject
     protected virtual void InitUI()
     {
         m_IsInit = true;
-        Title_Text.text = PopupEnum.GetPopupTitle(PopupName);
+        Title_Text.text = PopupHelper.GetPopupTitle(PopupName);
         Close_Btn.gameObject.SetActive(IsViewCloseBtn);
     }
 

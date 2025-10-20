@@ -1,7 +1,7 @@
 public class GameEnemyData
 {
-    public EnemyEnum.EName Name;
-    public EnemyEnum.ERank Rank;
+    public EnemyHelper.EName Name;
+    public EnemyHelper.ERank Rank;
     public int Level;
     public float Exp;
     public float VillageDamage;

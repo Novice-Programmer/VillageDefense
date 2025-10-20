@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public WeaponKeyData KeyData;
-    public EquipmentEnum.EWeaponType WeaponType;
-    public EquipmentEnum.ERank Rank;
+    public EquipmentHelper.EWeaponType WeaponType;
+    public EquipmentHelper.ERank Rank;
 
     public string ImageAddressableKey;
     public string LeftHandWeaponAddressableKey;

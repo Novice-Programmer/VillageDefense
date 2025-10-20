@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PopupManager : Singletone<PopupManager>
 {
     private Transform PopupCanvasTransform;
-    private readonly Dictionary<PopupEnum.EPopupName, PopupUI> PopupUIs = new();
+    private readonly Dictionary<PopupHelper.EPopupName, PopupUI> PopupUIs = new();
 
     private void SetPopupCanvas(PopupUI popupUI)
     {
@@ -37,11 +37,11 @@ public class PopupManager : Singletone<PopupManager>
         popupUI.transform.SetParent(PopupCanvasTransform, false);
     }
 
-    private async UniTask OpenPopup_UniTask(PopupEnum.EPopupName popupName, string popupDataJson)
+    private async UniTask OpenPopup_UniTask(PopupHelper.EPopupName popupName, string popupDataJson)
     {
         if (!PopupUIs.ContainsKey(popupName))
         {
-            var addressableKey = PopupEnum.GetPopupAddressableKey(popupName);
+            var addressableKey = PopupHelper.GetPopupAddressableKey(popupName);
             PopupUIs[popupName] = await ObjectManager.Instance.GetTObject_UniTask<PopupUI>(addressableKey);
         }
 
@@ -56,5 +56,5 @@ public class PopupManager : Singletone<PopupManager>
         popupUI.OpenPopup(popupDataJson);
     }
 
-    public void OpenPopup(PopupEnum.EPopupName popupName, string popupDataJson) => OpenPopup_UniTask(popupName, popupDataJson).Forget();
+    public void OpenPopup(PopupHelper.EPopupName popupName, string popupDataJson) => OpenPopup_UniTask(popupName, popupDataJson).Forget();
 }

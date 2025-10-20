@@ -1,6 +1,6 @@
 public class GameCircleLevelData
 {
-    public CharacterEnum.ECircleType CircleType;
+    public CharacterHelper.ECircleType CircleType;
     public int Level;
     public float CriticalRate;
     public float CriticalDamage;

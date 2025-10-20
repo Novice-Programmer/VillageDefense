@@ -1,6 +1,6 @@
 using NUnit.Framework.Internal;
-using EStatType = EnemyEnum.EStatType;
-using EValueType = EnemyEnum.EValueType;
+using EStatType = EnemyHelper.EStatType;
+using EValueType = EnemyHelper.EValueType;
 
 public static class Calculator
 {

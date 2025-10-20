@@ -20,7 +20,7 @@ public class LoadingManager : Singletone<LoadingManager>
 
     private bool m_IsChange;
 
-    public static void ChangeScene(SceneEnum.ESceneName sceneName)
+    public static void ChangeScene(SceneHelper.ESceneName sceneName)
     {
         if (Instance.m_IsChange)
         {
@@ -32,7 +32,7 @@ public class LoadingManager : Singletone<LoadingManager>
         Instance.ChangeScene_UniTask(sceneName).Forget();
     }
 
-    private async UniTask ChangeScene_UniTask(SceneEnum.ESceneName sceneName)
+    private async UniTask ChangeScene_UniTask(SceneHelper.ESceneName sceneName)
     {
         m_IsChange = true;
         SceneLoadingPanel.SetActive(true);

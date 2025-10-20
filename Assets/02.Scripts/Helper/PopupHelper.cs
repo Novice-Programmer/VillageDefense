@@ -1,4 +1,4 @@
-public class PopupEnum
+public class PopupHelper
 {
     public enum EPopupName
     {

@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DataManager : Singletone<DataManager>
@@ -11,9 +10,9 @@ public class DataManager : Singletone<DataManager>
     [SerializeField] private CircleCollection CircleCollection;
 
     private readonly Dictionary<int, GameStageData> m_StageDatas = new();
-    private readonly Dictionary<EnemyEnum.EName, Dictionary<EnemyEnum.ERank, Dictionary<int, GameEnemyData>>> m_EnemyDatas = new();
-    private readonly Dictionary<CharacterEnum.EMasteryType, Dictionary<int, GameMasteryLevelData>> m_MasteryDatas = new();
-    private readonly Dictionary<CharacterEnum.ECircleType, Dictionary<int, GameCircleLevelData>> m_CircleDatas = new();
+    private readonly Dictionary<EnemyHelper.EName, Dictionary<EnemyHelper.ERank, Dictionary<int, GameEnemyData>>> m_EnemyDatas = new();
+    private readonly Dictionary<CharacterHelper.EMasteryType, Dictionary<int, GameMasteryLevelData>> m_MasteryDatas = new();
+    private readonly Dictionary<CharacterHelper.ECircleType, Dictionary<int, GameCircleLevelData>> m_CircleDatas = new();
 
     private bool IsInit = false;
 

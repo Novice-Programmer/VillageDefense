@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using EnemyStatType = EnemyEnum.EStatType;
-using EnemyValueType = EnemyEnum.EValueType;
+using EnemyStatType = EnemyHelper.EStatType;
+using EnemyValueType = EnemyHelper.EValueType;
 
 public class EnemyObject : TObject
 {
